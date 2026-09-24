@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shubhajit 🪶</title>
+<meta name="description" content="A quiet, devotional birthday page for Shubhajit">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Mukta:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   TOKENS — Dusk & Peacock
+   A deep indigo night (Krishna's hue), warm temple gold,
+   peacock teal, and a soft saffron ember.
+===================================================== */
+:root{
+  --night-900:#090c1c;
+  --night-800:#0d1229;
+  --night-700:#12183a;
+  --night-600:#171f42;
+
+  --gold:#d9a441;
+  --gold-soft:#f0d9a0;
+  --peacock:#0e6e63;
+  --peacock-light:#3fa79a;
+  --saffron:#d97b3f;
+
+  --text-hi:#f7efe0;
+  --text-mid:#c9b98f;
+  --text-lo:#7f88ac;
+
+  --line:rgba(217,164,65,0.22);
+  --card:rgba(23,31,66,0.55);
+  --card-brd:rgba(217,164,65,0.18);
+
+  --r-arch:52% 52% 10px 10px / 60% 60% 10px 10px;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --f-display:'Cinzel',serif;
+  --f-body:'Mukta',sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(217,164,65,0.10), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(14,110,99,0.14), transparent 60%),
+    var(--night-900);
+  color:var(--text-hi);
+  font-family:var(--f-body);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
+img{max-width:100%;display:block;}
+:focus-visible{outline:2px solid var(--gold-soft);outline-offset:4px;border-radius:4px;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+
+/* reveal-on-scroll (single, quiet treatment) */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+
+/* =====================================================
+   SHARED
+===================================================== */
+section{max-width:720px;margin:0 auto;padding:90px 24px;}
+.kicker{display:block;font-size:.92rem;color:var(--peacock-light);margin-bottom:10px;letter-spacing:.02em;}
+h1,h2{font-family:var(--f-display);font-weight:600;color:var(--gold-soft);}
+h1{font-size:clamp(2.4rem,7vw,4rem);line-height:1.15;}
+h2{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:22px;}
+p{color:var(--text-mid);font-size:1.05rem;}
+.center{text-align:center;}
+
+/* ornamental divider — a peacock-feather "eye" between sections */
+.feather-divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto;max-width:360px;}
+.feather-divider .bar{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line));}
+.feather-divider .bar.right{background:linear-gradient(90deg,var(--line),transparent);}
+.feather-eye{width:22px;height:30px;flex-shrink:0;}
+
+/* =====================================================
+   HERO
+===================================================== */
+#hero{min-height:92svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;position:relative;}
+.om{
+  font-size:clamp(2.6rem,8vw,3.6rem);
+  color:var(--gold);
+  text-shadow:0 0 26px rgba(217,164,65,.55),0 0 60px rgba(217,164,65,.25);
+  opacity:0;
+  animation:omIn 1.6s var(--ease) .2s forwards, omGlow 4.5s ease-in-out 1.8s infinite;
+}
+@keyframes omIn{from{opacity:0;transform:scale(.7);}to{opacity:1;transform:scale(1);}}
+@keyframes omGlow{0%,100%{text-shadow:0 0 26px rgba(217,164,65,.55),0 0 60px rgba(217,164,65,.25);}50%{text-shadow:0 0 34px rgba(217,164,65,.8),0 0 84px rgba(217,164,65,.4);}}
+
+.hero-kicker{
+  margin-top:26px;color:var(--text-lo);font-size:1rem;
+  opacity:0;animation:fadeUp 1s var(--ease) .6s forwards;
+}
+#hero h1{
+  margin-top:8px;
+  opacity:0;animation:fadeUp 1.1s var(--ease) .85s forwards;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+.hero-date{
+  margin-top:14px;color:var(--peacock-light);font-size:.95rem;letter-spacing:.04em;
+  opacity:0;animation:fadeUp 1s var(--ease) 1.05s forwards;
+}
+
+/* a thin flute line beneath the name, with three small holes */
+.flute-line{
+  width:150px;height:14px;margin:26px auto 0;position:relative;
+  opacity:0;animation:fadeUp 1s var(--ease) 1.2s forwards;
+}
+.flute-line svg{width:100%;height:100%;display:block;}
+
+.hero-wish{max-width:480px;margin:26px auto 0;color:var(--text-mid);font-size:1.08rem;
+  opacity:0;animation:fadeUp 1s var(--ease) 1.4s forwards;}
+
+/* =====================================================
+   MANTRA STRIP
+===================================================== */
+#mantra{padding:70px 24px;text-align:center;}
+.mantra-card{
+  max-width:560px;margin:0 auto;padding:34px 28px;border-radius:18px;
+  background:var(--card);border:1px solid var(--card-brd);
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.mantra-sanskrit{font-family:var(--f-body);font-weight:500;font-size:1.35rem;color:var(--gold-soft);line-height:1.9;}
+.mantra-roman{margin-top:14px;color:var(--text-lo);font-style:italic;font-size:.95rem;line-height:1.8;}
+
+/* =====================================================
+   BLESSING
+===================================================== */
+#blessing .msg-card{
+  background:var(--card);border:1px solid var(--card-brd);border-radius:18px;
+  padding:38px 32px;box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+#blessing p{margin-bottom:16px;}
+#blessing p:last-child{margin-bottom:0;}
+.signoff{color:var(--gold-soft);font-family:var(--f-display);font-size:1.15rem;margin-top:22px;}
+
+/* =====================================================
+   GALLERY — temple-arch frames
+===================================================== */
+#gallery{text-align:center;}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;
+}
+@media (max-width:640px){.gallery-grid{grid-template-columns:1fr;max-width:280px;margin-inline:auto;}}
+.photo-frame{
+  aspect-ratio:3/4;border-radius:var(--r-arch);overflow:hidden;position:relative;
+  background:linear-gradient(160deg,var(--night-600),var(--night-700));
+  border:1px solid var(--card-brd);
+}
+.photo-frame img{width:100%;height:100%;object-fit:cover;}
+.photo-frame::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(217,164,65,.35),inset 0 -30px 40px rgba(9,12,28,.4);
+  pointer-events:none;
+}
+.photo-fallback{
+  display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  color:var(--text-lo);
+}
+.photo-fallback .fb-icon{font-size:1.8rem;opacity:.8;}
+.photo-fallback .fb-text{font-size:.72rem;letter-spacing:.03em;}
+
+/* =====================================================
+   PRABHUPADA'S BLESSING
+===================================================== */
+#prabhupada{text-align:center;}
+.prabhupada-portrait{
+  width:150px;height:150px;border-radius:50%;overflow:hidden;margin:0 auto;position:relative;
+  background:linear-gradient(160deg,var(--night-600),var(--night-700));
+  border:2px solid var(--gold);
+  box-shadow:0 0 0 6px rgba(217,164,65,.12),0 20px 50px rgba(0,0,0,.35);
+}
+.prabhupada-portrait img{width:100%;height:100%;object-fit:cover;}
+.prabhupada-portrait .photo-fallback{gap:6px;}
+.prabhupada-portrait .fb-icon{font-size:1.6rem;}
+.prabhupada-quote{
+  max-width:520px;margin:28px auto 0;padding:0 12px;
+  font-family:var(--f-display);font-style:italic;font-size:1.25rem;color:var(--gold-soft);line-height:1.6;
+}
+.prabhupada-attr{margin-top:14px;color:var(--text-lo);font-size:.9rem;}
+
+/* =====================================================
+   SONG
+===================================================== */
+#song{text-align:center;}
+.song-card{
+  max-width:420px;margin:0 auto;padding:30px 28px;border-radius:18px;
+  background:var(--card);border:1px solid var(--card-brd);
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+.song-name{font-family:var(--f-display);color:var(--gold-soft);font-size:1.1rem;}
+.song-note{color:var(--text-lo);font-size:.85rem;}
+#song-toggle{
+  width:64px;height:64px;border-radius:50%;border:1.5px solid var(--peacock-light);
+  background:rgba(14,110,99,.18);color:var(--gold-soft);font-size:1.2rem;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:var(--ease) .35s;
+}
+#song-toggle:hover{background:rgba(14,110,99,.32);transform:scale(1.05);}
+.song-bars{display:flex;align-items:flex-end;gap:4px;height:20px;}
+.song-bars span{width:3px;background:var(--peacock-light);border-radius:2px;height:6px;transition:height .2s;}
+.song-card.playing .song-bars span{animation:bar 1s ease-in-out infinite;}
+.song-bars span:nth-child(1){animation-delay:0s;}
+.song-bars span:nth-child(2){animation-delay:.15s;}
+.song-bars span:nth-child(3){animation-delay:.3s;}
+.song-bars span:nth-child(4){animation-delay:.45s;}
+@keyframes bar{0%,100%{height:6px;}50%{height:20px;}}
+#song-status{font-size:.8rem;color:var(--text-lo);min-height:1.2em;}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer{text-align:center;padding:80px 24px 60px;}
+footer .om{font-size:1.6rem;animation:none;opacity:1;}
+footer .jai{margin-top:12px;font-family:var(--f-display);color:var(--gold-soft);font-size:1.2rem;}
+footer .credit{margin-top:10px;color:var(--text-lo);font-size:.82rem;}
+</style>
+</head>
+<body>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section id="hero">
+  <div class="om" aria-hidden="true">ॐ</div>
+  <span class="hero-kicker">A little blessing, on your day</span>
+  <h1>Happy Birthday<br>Shubhajit</h1>
+  <div class="hero-date">24th September</div>
+  <div class="flute-line" aria-hidden="true">
+    <svg viewBox="0 0 150 14" xmlns="http://www.w3.org/2000/svg">
+      <line x1="4" y1="7" x2="146" y2="7" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+      <circle cx="58" cy="7" r="2" fill="var(--peacock-light)"/>
+      <circle cx="75" cy="7" r="2" fill="var(--peacock-light)"/>
+      <circle cx="92" cy="7" r="2" fill="var(--peacock-light)"/>
+    </svg>
+  </div>
+  <p class="hero-wish">May the same peace that rests on Krishna's flute find its way into your year — a little mischief, a lot of grace, and someone always watching over you.</p>
+</section>
+
+<!-- =====================================================
+     MANTRA
+===================================================== -->
+<section id="mantra">
+  <div class="mantra-card reveal">
+    <p class="mantra-sanskrit">
+      हरे कृष्ण हरे कृष्ण, कृष्ण कृष्ण हरे हरे<br>
+      हरे राम हरे राम, राम राम हरे हरे
+    </p>
+    <p class="mantra-roman">
+      Hare Krishna Hare Krishna, Krishna Krishna Hare Hare<br>
+      Hare Rama Hare Rama, Rama Rama Hare Hare
+    </p>
+  </div>
+</section>
+
+<div class="feather-divider reveal">
+  <span class="bar"></span>
+  <svg class="feather-eye" viewBox="0 0 22 30" aria-hidden="true">
+    <ellipse cx="11" cy="12" rx="10" ry="11.5" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.8"/>
+    <ellipse cx="11" cy="12" rx="6.5" ry="7.5" fill="none" stroke="var(--peacock-light)" stroke-width="1" opacity="0.85"/>
+    <ellipse cx="11" cy="12" rx="3" ry="3.6" fill="var(--peacock)"/>
+    <line x1="11" y1="23" x2="11" y2="30" stroke="var(--gold)" stroke-width="1" opacity="0.6"/>
+  </svg>
+  <span class="bar right"></span>
+</div>
+
+<!-- =====================================================
+     BLESSING
+===================================================== -->
+<section id="blessing">
+  <h2 class="reveal center">A Birthday Wish</h2>
+  <div class="msg-card reveal">
+    <p>Dear Shubhajit,</p>
+    <p>On this day, may Govinda walk beside you the way he walked through Vrindavan — unhurried, warm, and loved by everyone he passed. May your year be light like a peacock feather, steady like the Yamuna, and sweet like stolen butter.</p>
+    <p>Whatever the day brings, may you carry His calm in your chest and His smile on your face.</p>
+    <p class="signoff">Radhe Radhe, and a very happy birthday.</p>
+  </div>
+</section>
+
+<div class="feather-divider reveal">
+  <span class="bar"></span>
+  <svg class="feather-eye" viewBox="0 0 22 30" aria-hidden="true">
+    <ellipse cx="11" cy="12" rx="10" ry="11.5" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.8"/>
+    <ellipse cx="11" cy="12" rx="6.5" ry="7.5" fill="none" stroke="var(--peacock-light)" stroke-width="1" opacity="0.85"/>
+    <ellipse cx="11" cy="12" rx="3" ry="3.6" fill="var(--peacock)"/>
+    <line x1="11" y1="23" x2="11" y2="30" stroke="var(--gold)" stroke-width="1" opacity="0.6"/>
+  </svg>
+  <span class="bar right"></span>
+</div>
+
+<!-- =====================================================
+     PRABHUPADA'S BLESSING
+     Add a photo as prabhupada.jpg in the same folder as
+     this file.
+===================================================== -->
+<section id="prabhupada">
+  <h2 class="reveal">A Blessing from Srila Prabhupada</h2>
+  <div class="prabhupada-portrait reveal">
+    <img src="prabhupada.jpg" alt="Srila Prabhupada" loading="lazy"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="photo-fallback">
+      <span class="fb-icon" aria-hidden="true">🙏</span>
+      <span class="fb-text">add prabhupada.jpg</span>
+    </div>
+  </div>
+  <p class="prabhupada-quote reveal">"Chant Hare Krishna and be happy."</p>
+  <p class="prabhupada-attr reveal">— Srila A. C. Bhaktivedanta Swami Prabhupada</p>
+</section>
+
+<div class="feather-divider reveal">
+  <span class="bar"></span>
+  <svg class="feather-eye" viewBox="0 0 22 30" aria-hidden="true">
+    <ellipse cx="11" cy="12" rx="10" ry="11.5" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.8"/>
+    <ellipse cx="11" cy="12" rx="6.5" ry="7.5" fill="none" stroke="var(--peacock-light)" stroke-width="1" opacity="0.85"/>
+    <ellipse cx="11" cy="12" rx="3" ry="3.6" fill="var(--peacock)"/>
+    <line x1="11" y1="23" x2="11" y2="30" stroke="var(--gold)" stroke-width="1" opacity="0.6"/>
+  </svg>
+  <span class="bar right"></span>
+</div>
+
+<!-- =====================================================
+     GALLERY
+     Add your own photos as shubhajit1.jpg, shubhajit2.jpg,
+     shubhajit3.jpg in the same folder as this file.
+===================================================== -->
+<section id="gallery">
+  <h2 class="reveal">A Few Favourites</h2>
+  <div class="gallery-grid">
+    <div class="photo-frame reveal">
+      <img src="shubhajit1.jpg" alt="Shubhajit" loading="lazy"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="photo-fallback">
+        <span class="fb-icon" aria-hidden="true">🪷</span>
+        <span class="fb-text">add shubhajit1.jpg</span>
+      </div>
+    </div>
+    <div class="photo-frame reveal">
+      <img src="shubhajit2.jpg" alt="Shubhajit" loading="lazy"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="photo-fallback">
+        <span class="fb-icon" aria-hidden="true">🪷</span>
+        <span class="fb-text">add shubhajit2.jpg</span>
+      </div>
+    </div>
+    <div class="photo-frame reveal">
+      <img src="shubhajit3.jpg" alt="Shubhajit" loading="lazy"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="photo-fallback">
+        <span class="fb-icon" aria-hidden="true">🪷</span>
+        <span class="fb-text">add shubhajit3.jpg</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SONG
+     Add your own file as song.mp3 in the same folder as
+     this page to make the player work. Swap the text in
+     .song-name below for whatever song you use instead.
+===================================================== -->
+<section id="song">
+  <h2 class="reveal">A Song For You</h2>
+  <div class="song-card reveal" id="song-card">
+    <button id="song-toggle" onclick="toggleSong()" aria-label="Play song">▶</button>
+    <div class="song-name">Achyutam Keshavam</div>
+    <div class="song-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="song-note" id="song-status">a gentle bhajan for the day</div>
+    <audio id="bday-audio" preload="none">
+      <source src="song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer>
+  <div class="om" aria-hidden="true">ॐ</div>
+  <div class="jai">Jai Shri Krishna</div>
+  <div class="credit">Made with devotion, for Shubhajit's birthday</div>
+</footer>
+
+<script>
+/* Quiet scroll reveal */
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(el=>el.classList.add('in-view'));
+    return;
+  }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  items.forEach(el=>io.observe(el));
+})();
+
+/* Song player */
+function toggleSong(){
+  const audio = document.getElementById('bday-audio');
+  const btn = document.getElementById('song-toggle');
+  const card = document.getElementById('song-card');
+  const status = document.getElementById('song-status');
+
+  if(audio.paused){
+    audio.play().then(()=>{
+      btn.textContent = '❚❚';
+      btn.setAttribute('aria-label','Pause song');
+      card.classList.add('playing');
+      status.textContent = 'now playing';
+    }).catch(()=>{
+      status.textContent = 'add song.mp3 to this folder to play';
+    });
+  } else {
+    audio.pause();
+    btn.textContent = '▶';
+    btn.setAttribute('aria-label','Play song');
+    card.classList.remove('playing');
+    status.textContent = 'a gentle bhajan for the day';
+  }
+}
+document.getElementById('bday-audio').addEventListener('ended', ()=>{
+  document.getElementById('song-toggle').textContent = '▶';
+  document.getElementById('song-toggle').setAttribute('aria-label','Play song');
+  document.getElementById('song-card').classList.remove('playing');
+  document.getElementById('song-status').textContent = 'a gentle bhajan for the day';
+});
+</script>
+</body>
+</html>
